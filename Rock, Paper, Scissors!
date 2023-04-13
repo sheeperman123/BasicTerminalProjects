@@ -1,0 +1,58 @@
+options = ["rock", "paper", "scissors"]
+computer = None
+player = None
+cc = 0
+pc = 0
+draw = 0
+status = None
+import random
+while 1==1:
+    computer = random.choice(options)
+    player = input("Rock, paper, scissors?")
+    if player == "q" or player == "Q":
+        break
+    if player == "rock":
+        if computer == "rock":
+            print("its a draw!")
+            draw += 1
+            status = 1
+        if computer == "scissors":
+            print("player wins!")
+            status = 2
+            pc = pc + 1
+        if computer == "paper":
+            print("Computer wins!")
+            status = 3
+            cc = cc + 1
+    if player == "scissors":
+        if computer == "rock":
+            print("Computer wins!")
+            status = 3
+            cc = cc + 1
+        if computer == "paper":
+            print("player wins!")
+            status = 2
+            pc = pc + 1
+        if computer == "scissors":
+            print("its a draw!")
+            status = 1
+            draw = draw + 1
+    if player == "paper":
+        if computer == "rock":
+            print("player wins!")
+            status = 2
+            pc = pc + 1
+        if computer == "paper":
+            print("its a draw!")
+            status = 1
+            draw = draw + 1
+        if computer == "scissors":
+            print("computer wins!")
+            status = 3
+            cc = cc + 1
+    if status == 1:
+        print("where were: "+str(draw) + " draws!")
+    if status == 2:
+        print("Player won: " + str(pc) + " times!")
+    if status == 3:
+        print("Computer won: " + str(cc) + " times!")
