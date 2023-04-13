@@ -1,0 +1,18 @@
+import random
+import time
+p = 0
+c = 0
+while 1==1:
+    time.sleep(1)
+    guess = input("guess a number, and ill roll a dice! 1 - 6")
+    dice = random.randint(1, 7)
+    if guess == "q" or guess == "Q":
+        break
+    if dice == int(guess):
+        print("you guessed correctly!")
+        p = p + 1
+    else:
+        print("you guessed incorrectly")
+        c = c + 1
+    print("you've had " + str(c) + " incorrect guesses")
+    print("you've had " + str(p) + " correct guesses")
