@@ -1,0 +1,147 @@
+Words = ['adventure', 'ambitious', 'anticipation',
+         'appropriate', 'blissful', 'camaraderie',
+         'capable', 'cascade', 'charismatic', 'cherish',
+         'compassion', 'comprehend', 'confident', 'congenial',
+         'courageous', 'delightful', 'devotion', 'eager', 'ecstatic',
+         'eloquent', 'empathy', 'enthusiasm', 'exquisite', 'fascinating',
+         'fortitude', 'genuine', 'glorious', 'gracious', 'harmony', 'humility',
+         'immaculate', 'ingenious', 'innocence', 'inspiration', 'jubilant', 'magnificent',
+         'marvelous', 'optimistic', 'passionate', 'radiant']
+def zero():
+    print(" |------_")
+    print(" |      |")
+    print(" |")
+    print(" |")
+    print(" |")
+    print(" |")
+    print("_|_")
+
+def one():
+    print(" |-------")
+    print(" |      |")
+    print(" |      0")
+    print(" |")
+    print(" |")
+    print(" |")
+    print("_|_")
+
+def two():
+    print(" |------_")
+    print(" |      |")
+    print(" |      0")
+    print(" |      |")
+    print(" |")
+    print(" |")
+    print("_|_")
+
+def three():
+    print(" |------_")
+    print(" |      |")
+    print(" |      0")
+    print(r" |      |\"")
+    print(" |")
+    print(" |")
+    print("_|_")
+
+def four():
+    print(" |------_")
+    print(" |      |")
+    print(" |      0")
+    print(r" |     /|\"")
+    print(" |")
+    print(" |")
+    print("_|_")
+
+def five():
+    print(" |------_  ")
+    print(" |      |  ")
+    print(" |      0  ")
+    print(r" |     /|\"")
+    print(" |      |  ")
+    print(" |         ")
+    print("_|_")
+
+def six():
+    print(" |------_  ")
+    print(" |      |  ")
+    print(" |      0  ")
+    print(r" |     /|\"")
+    print(" |      |   ")
+    print(" |     /   ")
+    print("_|_")
+
+def seven():
+    print(" |------_   ")
+    print(" |      |   ")
+    print(" |      0   ")
+    print(r" |     /|\ ")
+    print(" |      |   ")
+    print(r" |     / \ ")
+    print("_|_")
+
+import random
+word = random.choice(Words)
+guessed = []
+secret = "_" * len(word)
+incorrect = 0
+incorrectguesses = []
+round = 0
+
+while True:
+    guess = input("guess")
+    if len(guess) > 1:
+        print("Only one letter please!")
+    if guess not in word:
+        incorrect = incorrect + 1
+        if guess in incorrectguesses:
+            print("You've already guessed that letter. Try again!")
+        elif guess not in word:
+            print("Incorrect!")
+            incorrectguesses.append(guess)
+            round += 1
+            if round == 0:
+                zero()
+            if round == 1:
+                one()
+            if round == 2:
+                two()
+            if round == 3:
+                three()
+            if round == 4:
+                four()
+            if round == 5:
+                five()
+            if round == 6:
+                six()
+            if round == 7:
+                seven()
+                print("You Lose! hehe >:)")
+                break
+            print(secret)
+    else:
+        guessed.append(guess)
+    if guess in word:
+        for i in range(len(word)):
+            if word[i] == guess:
+                secret = secret[:i] + guess + secret[i+1:]
+        print("Correct!")
+        if round == 0:
+            zero()
+        if round == 1:
+            one()
+        if round == 2:
+            two()
+        if round == 3:
+            three()
+        if round == 4:
+            four()
+        if round == 5:
+            five()
+        if round == 6:
+            six()
+        if round == 7:
+            seven()
+        print("word: " + secret.capitalize())
+        if secret == word:
+            print("Congrats! You Won! :D")
+            break
