@@ -1,0 +1,125 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SI
+{
+        class player
+        {
+
+            public int GreenCards;
+            public int RedCards;
+            public int BlueCards;
+            public string Name;
+
+            public  void reset1(int GreenCards, int RedCards, int BlueCards, string Name)
+            {
+                this.GreenCards = GreenCards;
+                this.RedCards = RedCards;
+                this.BlueCards = BlueCards;
+                this.Name = Name;
+            }
+            public void reset2(string Name)
+            {
+                this.Name = Name;
+                this.GreenCards = 3;
+                this.RedCards = 4;
+                this.BlueCards = 3;
+            }
+            public void Get(int Num)
+            {
+                if (Num == 1) 
+                {
+                    SetBlueCards(GetBlueCards() + 1);
+                }
+                if (Num == 2)
+                {
+                    SetGreenCards(GetGreenCards() + 1);
+                }
+                if (Num == 3)
+                {
+                    SetRedCards(GetRedCards() + 1);
+                }
+            }
+            public int FindBadCard()
+            {
+                int Green = GetGreenCards();
+                int Red = GetRedCards();
+                int Blue = GetBlueCards();
+                if (Blue < Red && Blue < Green && Blue !=0)
+                {
+                    BlueCards--;
+                    return 1;
+                }
+                if (Green < Red && Green < Blue && Green != 0)
+                {
+                    GreenCards--;
+                    return 2;
+                }
+                if (Red < Green && Red < Blue && Red != 0)
+                {
+                    RedCards--;
+                    return 3;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            public bool FindIfWin()
+            {
+                if (GetGreenCards() >= 10)
+                {
+                    return true;
+                }
+                if (GetRedCards() >= 10)
+                {
+                    return true;
+                }
+                if (GetBlueCards() >= 10)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            public int GetGreenCards()
+            {
+                return this.GreenCards;
+            }
+            public int GetRedCards()
+            {
+                return this.RedCards;
+            }
+            public int GetBlueCards()
+            {
+                return this.BlueCards;
+            }
+            public string GetName()
+            {
+                return this.Name;
+            }
+            public void setName(string val)
+            {
+                this.Name = val;
+            }
+            public void SetGreenCards(int val)
+            {
+                this.GreenCards = val;
+            }
+            public void SetRedCards(int val)
+            {
+                this.RedCards= val;
+            }
+            public void SetBlueCards(int val)
+            {
+                this.BlueCards = val;
+            }
+
+
+        }
+}
