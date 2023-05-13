@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            player player1 = new player();
+            player player2 = new player();
+            player player3 = new player();
+            int playerwin = 0;
+
+
+
+            Console.WriteLine("Enter player 1's name:");
+            player1.setName(Console.ReadLine());
+            Console.WriteLine("Enter the number of green cards for player 1:");
+            player1.SetGreenCards(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the number of red cards for player 1:");
+            player1.SetRedCards(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the number of blue cards for player 1:");
+            player1.SetBlueCards(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Enter player 2's name:");
+            player2.setName(Console.ReadLine());
+            Console.WriteLine("Enter the number of green cards for player 2:");
+            player2.SetGreenCards(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the number of red cards for player 2:");
+            player2.SetRedCards(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the number of blue cards for player 2:");
+            player2.SetBlueCards(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Enter player 3's name:");
+            player3.setName(Console.ReadLine());
+            Console.WriteLine("Enter the number of green cards for player 3:");
+            player3.SetGreenCards(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the number of blue cards for player 3:");
+            player3.SetBlueCards(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the number of red cards for player 3:");
+            player3.SetRedCards(int.Parse(Console.ReadLine()));
+            Random random = new Random();
+
+            while (true)
+            {
+                player1.Get(random.Next(1, 4));
+                player1.FindBadCard();
+                player2.Get(random.Next(1, 4));
+                player2.FindBadCard();
+                player3.Get(random.Next(1, 4));
+                player3.FindBadCard();
+
+
+               
+
+                if (player1.FindIfWin() == true)
+                {
+                    playerwin = 1;
+                    break;
+                }
+                if (player2.FindIfWin() == true)
+                {
+                    playerwin = 2;
+                    break;
+                }
+                if (player3.FindIfWin() == true)
+                {
+                    playerwin = 3;
+                    break;
+                }
+            }
+            Console.WriteLine("The player that won was player number: " + playerwin + " !! Congratulations !!");
+            if (playerwin == 1)
+            {
+                Console.WriteLine("Winner: " + player1.GetName());
+            }
+            if (playerwin == 2)
+            {
+                Console.WriteLine("Winner: " + player2.GetName());
+            }
+            if (playerwin == 3)
+            {
+                Console.WriteLine("Winner: " + player3.GetName());
+            }
+            Console.WriteLine("The cards of player #1: " + " Green Cards: " + player1.GetGreenCards() + " Blue Cards: " + player1.GetBlueCards() + " Red Cards: " + player1.GetRedCards());
+            Console.WriteLine("The cards of player #2: " + " Green Cards: " + player2.GetGreenCards() + " Blue Cards: " + player2.GetBlueCards() + " Red Cards: " + player2.GetRedCards());
+            Console.WriteLine("The cards of player #3: " + " Green Cards: " + player3.GetGreenCards() + " Blue Cards: " + player3.GetBlueCards() + " Red Cards: " + player3.GetRedCards());
+
+            Console.ReadKey();
+
+        }
+    }
+}
