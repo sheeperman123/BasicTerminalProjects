@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Unit4.BucketLib;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter capacity for Bucket number #1 !");
+            int C1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter capacity for Bucket number #2 !");
+            int C2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter starting amount of water inside of the Room!");
+            int RC = int.Parse(Console.ReadLine());
+
+            Bucket room = new Bucket(RC, "Room");
+            Bucket b1 = new Bucket(C1, "Bucket 1");
+            Bucket b2 = new Bucket(C2, "Bucket 2");
+
+            room.Fill(RC);
+            while (room.GetCapacity() != 0)
+            {
+                
+                room.PourInto(b1);
+                b1.PourInto(b2);
+                b2.Empty();
+
+            }
+            Console.WriteLine("Congratulations! You emptied the room!");
+        }
+      
+    }
+}
