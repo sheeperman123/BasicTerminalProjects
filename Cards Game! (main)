@@ -44,8 +44,8 @@ namespace SI
             Console.WriteLine("Enter the number of red cards for player 3:");
             player3.SetRedCards(int.Parse(Console.ReadLine()));
             Random random = new Random();
-
-            while (true)
+            bool win = true;
+            while (win)
             {
                 player1.Get(random.Next(1, 4));
                 player1.FindBadCard();
@@ -60,17 +60,17 @@ namespace SI
                 if (player1.FindIfWin() == true)
                 {
                     playerwin = 1;
-                    break;
+                    win = false;
                 }
                 if (player2.FindIfWin() == true)
                 {
                     playerwin = 2;
-                    break;
+                    win = false;
                 }
                 if (player3.FindIfWin() == true)
                 {
                     playerwin = 3;
-                    break;
+                    win = false;
                 }
             }
             Console.WriteLine("The player that won was player number: " + playerwin + " !! Congratulations !!");
