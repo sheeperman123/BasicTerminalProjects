@@ -1,0 +1,264 @@
+// Heres the code for the tictactoe game! have fun!
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace TicTacToe
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        public bool Win = false;
+        public bool turn = false ;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button1.Text = "X"; }
+            if (turn == false) { button1.Text = "O"; }
+            button1.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button2.Text = "X"; }
+            if (turn == false) { button2.Text = "O"; }
+            button2.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button3.Text = "X"; }
+            if (turn == false) { button3.Text = "O"; }
+            button3.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button4.Text = "X"; }
+            if (turn == false) { button4.Text = "O"; }
+            button4.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button5.Text = "X"; }
+            if (turn == false) { button5.Text = "O"; }
+            button5.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button6.Text = "X"; }
+            if (turn == false) { button6.Text = "O"; }
+            button6.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button7.Text = "X"; }
+            if (turn == false) { button7.Text = "O"; }
+            button7.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button8.Text = "X"; }
+            if (turn == false) { button8.Text = "O"; }
+            button8.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (this.turn == true) { this.turn = false; }
+            else { this.turn = true; }
+            if (turn == true) { button9.Text = "X"; }
+            if (turn == false) { button9.Text = "O"; }
+            button9.Enabled = false;
+            CheckIfWin();
+            restart();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void restart()
+        {
+            if (this.Win == true)
+            {
+                button10.Enabled = true;
+            }
+            else if (this.Win == false)
+            {
+                button10.Enabled = false;
+            }
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button5.Enabled = true;
+            button6.Enabled = true;
+            button7.Enabled = true;
+            button8.Enabled = true;
+            button9.Enabled = true;
+            button1.Text = "";
+            button2.Text = "";
+            button3.Text = "";
+            button4.Text = "";
+            button5.Text = "";
+            button6.Text = "";
+            button7.Text = "";
+            button8.Text = "";
+            button9.Text = "";
+            label1.Text = "N/A";
+        }
+
+
+        public void CheckIfWin()
+        {
+            // X
+            if (button1.Text == "X" && button2.Text == "X" && button3.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+            }
+            if (button4.Text == "X" && button5.Text == "X" && button6.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+            }
+            if (button7.Text == "X" && button8.Text == "X" && button9.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button1.Text == "X" && button4.Text == "X" && button7.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button2.Text == "X" && button5.Text == "X" && button8.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button3.Text == "X" && button6.Text == "X" && button9.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button1.Text == "X" && button5.Text == "X" && button9.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button3.Text == "X" && button5.Text == "X" && button7.Text == "X")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+
+            // O
+            if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button4.Text == "O" && button5.Text == "O" && button6.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button7.Text == "O" && button8.Text == "O" && button9.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button1.Text == "O" && button4.Text == "O" && button7.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button2.Text == "O" && button5.Text == "O" && button8.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button3.Text == "O" && button6.Text == "O" && button9.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button1.Text == "O" && button5.Text == "O" && button9.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+            if (button3.Text == "O" && button5.Text == "O" && button7.Text == "O")
+            {
+                label1.Text = "Win!";
+                this.Win = true;
+
+            }
+        }
+
+       
+    }
+}
